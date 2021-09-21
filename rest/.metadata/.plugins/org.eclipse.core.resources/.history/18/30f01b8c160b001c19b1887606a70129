@@ -1,0 +1,17 @@
+package com.example.demo.exception;
+
+import java.util.Date;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+	public ResponseEntity<Object> resourceNotFound(EmployeeNotFoundException ex,WebRequest req){
+		ExceptionDetails exd=new ExceptionDetails(ex.getMessage(),req.getDescription(false),new Date());
+		return new ResponseEntity<Object>(exceptionDetails, HttpStatus.NOT_FOUND);
+	}
+}

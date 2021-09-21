@@ -1,0 +1,10 @@
+package com.example.demo.service;
+
+import com.example.demo.beans.Employee;
+
+public class DatabaseSaver {
+    
+	public void save(Employee emp) {
+		System.out.println("employee: "+emp);
+	}
+}
